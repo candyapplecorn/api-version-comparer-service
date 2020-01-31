@@ -19,6 +19,9 @@ class Version {
   }
 
   static greatestVersion(versionList) {
+    if (!Array.isArray(versionList)) {
+      return versionList;
+    }
     const versions = versionList.map(version => new Version(version));
     const sorted = versions.sort(Version.versionComparator);
     return sorted[0].versionString

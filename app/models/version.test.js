@@ -36,6 +36,11 @@ describe('Version', () => {
             const shouldBeGreatest = Version.greatestVersion(list);
             expect(shouldBeGreatest).toEqual(greatest);
         });
+
+        it('should handle a single version', () => {
+            expect(Version.greatestVersion('1')).toEqual('1');
+            expect(Version.greatestVersion(['1'])).toEqual('1');
+        })
     });
 
     describe('validity', () => {
