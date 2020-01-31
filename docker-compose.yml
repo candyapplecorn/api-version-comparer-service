@@ -1,0 +1,22 @@
+version: '3'
+services:
+
+  version-compare-app:
+    build:
+      context: ./version-compare-app
+      dockerfile: Dockerfile
+    command: nodemon server.js
+    container_name: version-compare-app
+    ports:
+      - 5000:8080
+    volumes:
+      - ./app:/usr/src/app
+      - /usr/src/app/node_modules
+
+  # version-compare-ui:
+  #   build: ./version-compare-ui
+  #   container_name: version-compare-ui
+  #   ports:
+  #     - 4200:80
+  #   links:
+  #     - version-compare-app
